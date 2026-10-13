@@ -1,8 +1,16 @@
 
 n = int(input("Enter number of items: "))
 
-profit = list(map(int, input("Enter profits: ").split()))
-weight = list(map(int, input("Enter weights: ").split()))
+profit = []
+weight = []
+
+print("Enter profits:")
+for i in range(n):
+    profit.append(int(input()))
+
+print("Enter weights:")
+for i in range(n):
+    weight.append(int(input()))
 
 capacity = int(input("Enter knapsack capacity: "))
 
