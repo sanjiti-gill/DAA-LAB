@@ -1,28 +1,30 @@
-
 V = int(input("Enter number of vertices: "))
-E = int(input("Enter number of edges: "))
+
+print("Enter adjacency matrix (0 if no edge):")
+graph = []
+for i in range(V):
+    graph.append(list(map(int, input().split())))
 
 edges = []
 
-print("Enter edges (u v weight):")
-for i in range(E):
-    u, v, w = map(int, input().split())
-    edges.append((w, u, v))
+for i in range(V):
+    for j in range(i + 1, V):
+        if graph[i][j] != 0:
+            edges.append((graph[i][j], i, j))
 
 edges.sort()
 
 parent = list(range(V))
 cost = 0
+count = 0
 
 print("Selected edges:")
 
 for w, u, v in edges:
-    a = u
-    b = v
+    a, b = u, v
 
     while parent[a] != a:
         a = parent[a]
-
     while parent[b] != b:
         b = parent[b]
 
@@ -30,5 +32,9 @@ for w, u, v in edges:
         print(u, "-", v, ":", w)
         cost += w
         parent[a] = b
+        count += 1
+
+        if count == V - 1:
+            break
 
 print("Minimum Cost:", cost)
