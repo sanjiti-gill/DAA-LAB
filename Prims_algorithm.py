@@ -3,12 +3,8 @@ V = int(input("Enter number of vertices: "))
 
 print("Enter adjacency matrix (0 if no edge):")
 graph = []
-
 for i in range(V):
-    row = []
-    for j in range(V):
-        row.append(int(input()))
-    graph.append(row)
+    graph.append(list(map(int, input().split())))
 
 visited = [False] * V
 visited[0] = True
