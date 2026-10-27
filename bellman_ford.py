@@ -18,6 +18,12 @@ for i in range(V - 1):
             dist[v] = dist[u] + w
     print(f"Iteration {i + 1}: {dist}")
 
+# Negative cycle check
+for u, v, w in edges:
+    if dist[u] + w < dist[v]:
+        print("Negative weight cycle detected!")
+        exit()
+
 print("\nShortest distances from source", source)
 for i in range(V):
     print(f"{source} -> {i} : {dist[i]}")
