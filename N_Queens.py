@@ -27,4 +27,4 @@ n = int(input("Enter N: "))
 cols = [-1] * n
 count = 0
 solve(0)
-print("\nTotal solutions:", count)
+
