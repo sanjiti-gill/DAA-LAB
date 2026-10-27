@@ -26,14 +26,10 @@ graph = []
 for i in range(n):
     graph.append(list(map(int, input().split())))
 
-color = [0] * n
-
 for m in range(1, n + 1):
+    color = [0] * n
+
     if solve(0, m):
-        print("\nMinimum colors required:", m)
-        print("Valid color assignment:")
-
         for i in range(n):
-            print("Vertex", i, ":", "Color", color[i])
-
+            print("Vertex", i, ": Color", color[i])
         break
