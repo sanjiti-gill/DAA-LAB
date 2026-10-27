@@ -17,10 +17,10 @@ def solve(row):
     
     for c in range(n):
         if is_safe(row, c):
-            print("  " * row + "Place Q at row", row, "col", c)
+            print("Place Q at row", row, "col", c)
             cols[row] = c
             solve(row + 1)
-            print("  " * row + "Backtrack from row", row, "col", c)
+            print("Backtrack from row", row, "col", c)
 
 
 n = int(input("Enter N: "))
